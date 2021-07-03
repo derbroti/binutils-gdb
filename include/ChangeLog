@@ -1,0 +1,166 @@
+2021-03-05  Craig Blackmore  <craig.blackmore@embecosm.com>
+	    Andrew Burgess  <andrew.burgess@embecosm.com>
+
+	* elf/common.h (NT_RISCV_CSR): Define.
+
+2021-03-05  Craig Blackmore  <craig.blackmore@embecosm.com>
+	    Andrew Burgess  <andrew.burgess@embecosm.com>
+
+	* elf/common.h (NT_GDB_TDESC): Define.
+
+2021-03-03  Alan Modra  <amodra@gmail.com>
+
+	* coff/internal.h: Delete obsolete relocation defines.  Move used
+	relocation defines..
+	* coff/i386.h: ..to here..
+	* coff/ti.h: ..and here..
+	* coff/x86_64.h: ..and here..
+	* coff/z80.h: ..and here..
+	* coff/z8k.h: ..and here.
+
+2021-03-02  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (CTF_LINK_SHARE_DUPLICATED): Note that this might
+	merely change how much deduplication is done.
+
+2021-03-01  Alan Modra  <amodra@gmail.com>
+	    Fangrui Song <maskray@google.com>
+
+	* bfdlink.h (struct bfd_link_info): Add start_stop_gc.
+
+2021-02-21  Alan Modra  <amodra@gmail.com>
+
+	* bfdlink.h (struct bfd_link_info): Add warn_multiple_definition.
+
+2021-02-17  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (ctf_arc_lookup_symbol_name): New.
+	(ctf_lookup_by_symbol_name): Likewise.
+
+2021-02-19  Nelson Chu  <nelson.chu@sifive.com>
+
+	PR 27158
+	* opcode/riscv.h: Updated encoding macros.
+
+2021-02-18  Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv.h: Moved stuff and make the file tidy.
+
+2021-02-15  Andreas Krebbel  <krebbel@linux.ibm.com>
+
+	* opcode/s390.h (enum s390_opcode_cpu_val): Add
+	S390_OPCODE_ARCH14.
+
+2021-02-08  Mike Frysinger  <vapier@gentoo.org>
+
+	* opcode/tic54x.h (mmregs): Rename to ...
+	(tic54x_mmregs): ... this.
+	(regs): Rename to ...
+	(tic54x_regs): ... this.
+	(condition_codes): Rename to ...
+	(tic54x_condition_codes): ... this.
+	(cc2_codes): Rename to ...
+	(tic54x_cc2_codes): ... this.
+	(status_bits): Rename to ...
+	(tic54x_status_bits): ... this.
+	(cc3_codes): Rename to ...
+	(tic54x_cc3_codes): ... this.
+	(misc_symbols): Rename to ...
+	(tic54x_misc_symbols): ... this.
+
+2021-02-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	PR 27348
+	* opcode/riscv.h: Remove obsolete OP_*CUSTOM_IMM.
+
+2021-02-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	PR 27348
+	* opcode/riscv-opc.h: Remove obsolete Xcustom support.
+
+2021-01-27  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (ECTF_NONAME): New.
+	(ECTF_NERR): Adjust.
+
+2021-01-26  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (CTF_LINK_NO_FILTER_REPORTED_SYMS): New.
+
+2021-02-04  Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv-opc.h: Removed macros for zb* extensions.
+	* opcode/riscv.h (riscv_insn_class): Removed INSN_CLASS_ZB*.
+
+2021-01-15  Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv.h: Indent and GNU coding standards tidy,
+	also aligned the code.
+
+2021-01-15  Nelson Chu  <nelson.chu@sifive.com>
+
+	* elf/riscv.h: Comments tidy and improvement.
+	* opcode/riscv-opc.h: Likewise.
+	* opcode/riscv.h: Likewise.
+
+2021-01-11  Kyrylo Tkachov  <kyrylo.tkachov@arm.com>
+
+	* opcode/aarch64.h (AARCH64_FEATURE_CSRE): Delete.
+	(aarch64_opnd): Delete AARCH64_OPND_CSRE_CSR.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-07  Philipp Tomsich  <prt@gnu.org>
+
+	* opcode/riscv-opc.h: Added MATCH_PAUSE, MASK_PAUSE and DECLARE_INSN
+	for pause hint instruction.
+	* opcode/riscv.h (enum riscv_insn_class): Added INSN_CLASS_ZIHINTPAUSE.
+
+2021-01-07  Claire Xenia Wolf  <claire@symbioticeda.com>
+	    Jim Wilson  <jimw@sifive.com>
+	    Andrew Waterman  <andrew@sifive.com>
+	    Maxim Blinov  <maxim.blinov@embecosm.com>
+	    Kito Cheng  <kito.cheng@sifive.com>
+	    Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv-opc.h: Added MASK/MATCH/DECLARE_INSN for ZBA/ZBB/ZBC.
+	* opcode/riscv.h (riscv_insn_class): Added INSN_CLASS_ZB*.
+	(enum riscv_isa_spec_class): Added ISA_SPEC_CLASS_DRAFT for the
+	frozen extensions.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (CTF_MN_RECURSE): New.
+	(ctf_member_next): Add flags argument.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (ECTF_INCOMPLETE): New.
+	(ECTF_NERR): Adjust.
+
+2021-01-01  Nicolas Boulenguez  <nicolas@debian.org>
+
+	* coff/internal.h: Correct comment spelling.
+	* coff/sym.h: Likewise.
+	* opcode/aarch64.h: Likewise.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:
