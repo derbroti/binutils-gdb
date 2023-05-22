@@ -5353,6 +5353,12 @@ is treated as unsigned with these relocation types, giving full
 /* Direct 16 bit  */
   BFD_RELOC_MK_16,
 
+/* Direct lowest 16 bit  */
+  BFD_RELOC_MK_16LO,
+
+/* Direct upper 8 bit  */
+  BFD_RELOC_MK_16UP,
+
 /* Direct lowest 8 bit  */
   BFD_RELOC_MK_8LO,
 
@@ -5362,8 +5368,17 @@ is treated as unsigned with these relocation types, giving full
 /* Direct upper  8 bit  */
   BFD_RELOC_MK_8UP,
 
+/* PC relative effective 25 bit signed jump  */
+  BFD_RELOC_MK_J_PC24,
+
+/* PC relative 24 bit  */
+  BFD_RELOC_MK_PC24,
+
 /* PC relative low 16 bit  */
   BFD_RELOC_MK_PC16,
+
+/* PC relative effective 17 bit signed jump  */
+  BFD_RELOC_MK_J_PC16,
 
 /* PC relative low 12 bit  */
   BFD_RELOC_MK_PC12,

@@ -109,15 +109,48 @@ bfd_howto_type elf_mk_howto_table[] =
    0xFFFF,     /* dst_mask */
    FALSE),   /* pcrel_offset */
 
+  /*  direct lowest 16 bit  */
+  BFD_HOWTO (BFD_RELOC_MK_16LO,
+   R_MK_16LO,   /* type 4 */
+   0,     /* rightshift */
+   2,     /* size = 32 bit */
+   16,     /* bitsize */
+   FALSE,     /* pc_relative */
+   0,     /* bitpos */
+   complain_overflow_dont,/*  */
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_16lO",    /* name */
+   FALSE,     /* partial_inplace */
+   0xFFFF,     /* src_mask */
+   0xFFFF,     /* dst_mask */
+   FALSE),   /* pcrel_offset */
+
+    /*  direct uppeer 8 bit  */
+  BFD_HOWTO (BFD_RELOC_MK_16UP,
+   R_MK_16UP,   /* type 5 */
+   16,     /* rightshift */
+   2,     /* size = 32 bit */
+   8,     /* bitsize */
+   FALSE,     /* pc_relative */
+   0,     /* bitpos */
+   complain_overflow_dont,/*  */
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_16UP",    /* name */
+   FALSE,     /* partial_inplace */
+   0xFF,     /* src_mask */
+   0xFF,     /* dst_mask */
+   FALSE),   /* pcrel_offset */
+
     /* Direct lowest  8 bit  */
   BFD_HOWTO (BFD_RELOC_MK_8LO,
-   R_MK_8LO,   /* type 4 */
+   R_MK_8LO,   /* type 6 */
    0,     /* rightshift */
    2,     /* size = 32 bit */
    8,     /* bitsize */
    FALSE,     /* pc_relative */
    0,     /* bitpos */
-   complain_overflow_unsigned,/*  */
+   complain_overflow_dont, //do not complain as we have to chop of bits...
+   // complain_overflow_unsigned,
    bfd_elf_generic_reloc, /* special_function */
    "R_MK_8LO",    /* name */
    FALSE,     /* partial_inplace */
@@ -125,11 +158,26 @@ bfd_howto_type elf_mk_howto_table[] =
    0xFF,     /* dst_mask */
    FALSE),   /* pcrel_offset */
 
-// RELOC_NUMBER (R_MK_4LO,       5) // Direct lowest 4 bit // kinda useless but unless assembler prevents it, it would be possible
+  /* Direct lowest  4 bit  */
+  BFD_HOWTO (BFD_RELOC_MK_4LO,
+   R_MK_4LO,   /* type 7 */
+   0,     /* rightshift */
+   2,     /* size = 32 bit */
+   4,     /* bitsize */
+   FALSE,     /* pc_relative */
+   16,     /* bitpos */
+   complain_overflow_dont, //do not complain as we have to chop of bits...
+   // complain_overflow_unsigned,
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_4LO",    /* name */
+   FALSE,     /* partial_inplace */
+   0xF0000,     /* src_mask */
+   0xF0000,     /* dst_mask */
+   FALSE),   /* pcrel_offset */
 
     /* Direct upper  8 bit  */
   BFD_HOWTO (BFD_RELOC_MK_8UP,
-   R_MK_8UP,   /* type 6 */
+   R_MK_8UP,   /* type 8 */
    16,     /* rightshift */
    2,     /* size = 32 bit */
    8,     /* bitsize */
@@ -143,10 +191,43 @@ bfd_howto_type elf_mk_howto_table[] =
    0xFF0000,     /* dst_mask */
    FALSE),   /* pcrel_offset */
 
+    /* PC relative effectvie 25 bit jump */
+  BFD_HOWTO (BFD_RELOC_MK_J_PC24,
+   R_MK_J_PC24,   /* type 9 */
+   1,     /* rightshift */
+   2,     /* size = 32 bit */
+   24,     /* bitsize */
+   TRUE,     /* pc_relative */
+   0,     /* bitpos */
+   complain_overflow_signed,/*  */
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_J_PC24",    /* name */
+   FALSE,     /* partial_inplace */
+   0xFFFFFF,     /* src_mask */
+   0xFFFFFF,     /* dst_mask */
+   TRUE),   /* pcrel_offset */
+
+
+    /* PC relative 24 bit  */
+  BFD_HOWTO (BFD_RELOC_MK_PC24,
+   R_MK_PC24,   /* type 10 */
+   0,     /* rightshift */
+   2,     /* size = 32 bit */
+   24,     /* bitsize */
+   FALSE,     /* pc_relative */
+   0,     /* bitpos */
+   complain_overflow_unsigned,/*  */
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_PC24",    /* name */
+   FALSE,     /* partial_inplace */
+   0xFFFFFF,     /* src_mask */
+   0xFFFFFF,     /* dst_mask */
+   TRUE),   /* pcrel_offset */
+
 
     /* PC relative low 16 bit  */
   BFD_HOWTO (BFD_RELOC_MK_PC16,
-   R_MK_PC16,   /* type 7 */
+   R_MK_PC16,   /* type 11 */
    0,     /* rightshift */
    2,     /* size = 32 bit */
    16,     /* bitsize */
@@ -158,9 +239,27 @@ bfd_howto_type elf_mk_howto_table[] =
    FALSE,     /* partial_inplace */
    0xFFFF,     /* src_mask */
    0xFFFF,     /* dst_mask */
+   TRUE),   /* pcrel_offset */
+
+
+    /* PC relative effectvie 17 bit jump */
+  BFD_HOWTO (BFD_RELOC_MK_J_PC16,
+   R_MK_J_PC16,   /* type 12 */
+   1,     /* rightshift */
+   2,     /* size = 32 bit */
+   16,     /* bitsize */
+   TRUE,     /* pc_relative */
+   0,     /* bitpos */
+   complain_overflow_signed,/*  */
+   bfd_elf_generic_reloc, /* special_function */
+   "R_MK_J_PC16",    /* name */
+   FALSE,     /* partial_inplace */
+   0xFFFF,     /* src_mask */
+   0xFFFF,     /* dst_mask */
    TRUE)   /* pcrel_offset */
 
-//RELOC_NUMBER (R_MK_PC12,      8) // PC relative low 12 bit
+
+//RELOC_NUMBER (R_MK_PC12,      13) // PC relative low 12 bit
 
 };
 

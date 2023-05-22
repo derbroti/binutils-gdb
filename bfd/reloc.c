@@ -6750,6 +6750,14 @@ ENUM
 ENUMDOC
    Direct 16 bit
 ENUM 
+  BFD_RELOC_MK_16LO
+ENUMDOC
+  Direct lowest 16 bit
+ENUM 
+  BFD_RELOC_MK_16UP
+ENUMDOC
+  Direct upper 8 bit
+ENUM 
   BFD_RELOC_MK_8LO
 ENUMDOC
   Direct lowest 8 bit
@@ -6761,10 +6769,22 @@ ENUM
   BFD_RELOC_MK_8UP
 ENUMDOC
   Direct upper  8 bit
+ ENUM 
+  BFD_RELOC_MK_J_PC24
+ENUMDOC
+  PC relative effective 25 bit signed jump
+ENUM 
+  BFD_RELOC_MK_PC24
+ENUMDOC
+  PC relative 24 bit
 ENUM 
   BFD_RELOC_MK_PC16
 ENUMDOC
   PC relative low 16 bit
+ENUM 
+  BFD_RELOC_MK_J_PC16
+ENUMDOC
+  PC relative effective 17 bit signed jump
 ENUM 
   BFD_RELOC_MK_PC12
 ENUMDOC
