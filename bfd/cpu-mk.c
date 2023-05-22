@@ -53,8 +53,8 @@ const bfd_arch_info_type bfd_mk_arch =
            archures.c.  Not emitted in output.  */
   "mk",     /* The arch_name.  */
   "mk",     /* The printable name is the same.  */
-  1,        /* Section alignment power; each section
-           is aligned to (only) 2^1 bytes.  */
+  2,        /* Section alignment power; each section
+           is aligned to (only) 2^2 bytes.  */
   TRUE,       /* This is the default "machine".  */
   compatible,   /* A function for testing
            "machine" compatibility of two
