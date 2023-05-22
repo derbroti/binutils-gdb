@@ -17,14 +17,15 @@ ENTRY("_start")
 
 SECTIONS
 {
-.vector_table 0x0: { *(.vector_table) *(vector_table) }
-.config     0x530: { *(.config) *(config) }
-.rodata     0x580: { *(.rodata) *(rodata) }
+.vtab       0x0: { *(.vtab) *(vtab) }
+.conf     0x530: { *(.conf) *(conf) }
+.rdat     0x600: { *(.rdat) *(rdat) }
+.bot      0xE00: { *(.bot)    *(bot)    }
 
-.text      0x1000: { *(.text) *(text) }
-.data            : { *(.data) *(data) }
-.bss             : { *(.bss) *(bss) }
-.stack   0xff0000: { *(.stack) *(stack) }
-.boot    0xffff00: { *(.boot) *(boot) }
+.text    0x1000: { *(.text) *(text) }
+.data          : { *(.data) *(data) }
+.bss           : { *(.bss) *(bss) }
+.stack 0xff0000: { *(.stack) *(stack) }
+.boot  0xffff00: { *(.boot) *(boot) }
 }
 EOF
