@@ -418,7 +418,7 @@ mk_elf_relocate_section (bfd *output_bfd,
              howto->rightshift,
              16 * 2, //bfd_arch_bits_per_address (abfd) * 2, //misleadding... instructions are 2 addresses wide
              relocation) != bfd_reloc_ok) {
-      _bfd_error_handler (_("%pB: %s overflow in '%s' 0x%lx"), input_bfd, howto->name, input_section->name, rel->r_offset);
+      _bfd_error_handler (_("%pB: %s overflow in '%s' @ 0x%lx value: %lx"), input_bfd, howto->name, input_section->name, rel->r_offset, relocation);
       return FALSE;
     }
   }
